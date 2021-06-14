@@ -83,14 +83,14 @@ document.addEventListener('keypress', (e) =>{
   } else {
     keypressContainer.style.background ="red"
   }
-  ring(e.key);
+ // ring(e.key);
 })
 
-const ring = (key) => {
-  const audio = new Audio();
-  audio.src =  key + ".mp3";
-  audio.play();
-}
+// const ring = (key) => {
+//  // const audio = new Audio();
+//   audio.src =  key + ".mp3";
+//  // audio.play();
+// }
 //--------------------
 //Scroll Event
 
@@ -102,5 +102,65 @@ window.addEventListener('scroll', () =>{
   } else {
     nav.style.top = "-50px";
   }
+});
+
+//-----------------
+// Form Events
+const inputName = document.querySelector('input[type="text"]');
+const select = document.querySelector("select");
+const form = document.querySelector("form");
+
+let pseudo = "";
+let language = "";
+
+console.log(form);
+
+inputName.addEventListener("input", (e) => {
+ pseudo =   e.target.value;
+ console.log("Le pseudo est",  pseudo);
+});
+
+select.addEventListener("input", (e) => {
+  language =  e.target.value; 
+  
 })
 
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  
+  if (cgv.checked) {
+    // Afficher le contenu des variables
+    document.querySelector('form > div').innerHTML = `
+    <h3>Pseudo : ${pseudo} </h3>
+    <h4>Langage préféré : ${language} </h4>
+    `;
+  }else {
+    alert('Veuillez accepter les CGV')
+  }
+});
+
+
+//-------------
+// Load event il se déclenche une fois que la page a été fermé
+window.addEventListener("load", () => {
+  console.log("Document Chargé ")
+});
+
+//-------------
+// 
+window.addEventListener("load", () => {
+  console.log("Document Chargé ")
+});
+
+//-------------
+// On utilise getElementsByClassName est utilisé quand on a plusieurs  éléménts dans la class
+//const boxes = document.getElementsByClassName("box");
+const boxes = document.querySelectorAll(".box");
+// On ne peut ^pas faire un addEventListener sur plusieurs éléments
+// boxes.addEventListener('click', () => console)
+ boxes.forEach((box) => {
+   box.addEventListener('click', (e) => {
+    e.target.style.transform = "scale(0.7)";
+   })
+   
+ });
