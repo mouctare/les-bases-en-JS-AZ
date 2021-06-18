@@ -156,7 +156,7 @@ window.addEventListener("load", () => {
 // On utilise getElementsByClassName est utilisé quand on a plusieurs  éléménts dans la class
 //const boxes = document.getElementsByClassName("box");
 const boxes = document.querySelectorAll(".box");
-// On ne peut ^pas faire un addEventListener sur plusieurs éléments
+// On ne peut pas faire un addEventListener sur plusieurs éléments
 // boxes.addEventListener('click', () => console)
  boxes.forEach((box) => {
    box.addEventListener('click', (e) => {
@@ -164,3 +164,57 @@ const boxes = document.querySelectorAll(".box");
    })
    
  });
+ // Usecapture
+ document.body.addEventListener(
+   "click",
+   () => {
+     console.log("click, 2 !");
+   },
+   true
+ );
+
+
+ //----------
+ // Stop propagation d'evenement
+ questionContainer.addEventListener('click', (e) => {
+ //  alert("Test !");
+   e.stopPropagation();
+ });
+
+ // removeEventListener
+
+ // BOM 
+
+// console.log(window.innerHeight);
+ 
+ //console.log(window.scrollY);
+
+ // confirm
+ btn2.addEventListener("click", () =>{
+   confirm("Voulez vous vraiment vous tromper ?");
+ })
+ 
+ // prompt
+ btn1.addEventListener("click", () =>{
+ let answer =  prompt("Entrez votre nom !");
+ questionContainer.innerHTML = "<h3>Bravo " + answer + "</h3>";
+ })
+ 
+ setTimeout(() =>{
+// logique à exécuter
+questionContainer.style.borderRaduis = "300px";
+ }, 2000);
+
+
+ let interval = setInterval(() =>{
+document.body.innerHTML +=
+`
+ <div class='box'>
+   <h2>Nouvelle Boite !</h2>
+ </div>
+`
+ }, 2000)
+ document.body.addEventListener('click', (e) => {
+   e.target.remove();
+   clearInterval(interval);
+ })
