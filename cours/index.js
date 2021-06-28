@@ -192,6 +192,8 @@ const boxes = document.querySelectorAll(".box");
  // confirm
  btn2.addEventListener("click", () =>{
    confirm("Voulez vous vraiment vous tromper ?");
+
+   
  })
  
  // prompt
