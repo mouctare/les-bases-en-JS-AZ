@@ -1,1 +1,9 @@
+* {
+  font-family: "Lucas Sans ", "Lucid Sans Regular", "Lucida" Georgia,
+    "Times New Roman", Times, serif;
+}
 
+.user-card {
+  border: 2px solid orange;
+  margin: 10px;
+}

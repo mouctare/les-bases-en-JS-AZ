@@ -38,8 +38,59 @@ let arrayNumber = [4, 74, 28, 12, 1];
 //console.log(arrayNumber.sort((a, b) => b - a));
 // trier comme on veut
 
-document.body.innerHTML = arrayNumber
-.map((number) => `<li>${number}</li>`)
-.join("-");
+// document.body.innerHTML = arrayNumber
+// .map((number) => `<li>${number}</li>`)
+// .join(" ");
+
+// document.body.innerHTML = arrayNumber
+// .map((number) => `<li>${number}</li>`)
+// .join(" ");
+
+const data = [ 
+    {
+     pseudo: "Denis",
+     age: 30,
+     technos: ["Javascript", "React", "NodeJs"],
+     admin: false,
+},
+    {
+     pseudo: "Samia",
+     age: 43,
+     technos: ["CSS", "React", "NodeJs"],
+     admin: false,
+},
+    {
+     pseudo: "Nikola",
+     age: 53,
+     technos: ["Php", "React", "NodeJs"],
+     admin: false,
+},
+    {
+     pseudo: "Jean",
+     age: 33,
+     technos: ["Java", "React", "NodeJs"],
+     admin: true,
+}
+
+]
+
+document.body.innerHTML = data
+  .filter((user) => user.admin === false || true)
+  //.filter((user) => user.pseudo.includes("Den"))
+  .sort((a, b) => b.age - a.age)
+  .map((user) =>
+  `
+   <div class="user-card">
+   <h2>${user.pseudo}</h2>
+   <p>Age : ${user.age} ans</p>
+   <p>Status : ${user.admin ? "Modérateur" : "Membre"}</p>
+   
+   </div>
+  
+  `
+  ).join("");
+
+  
 
 
+ 
