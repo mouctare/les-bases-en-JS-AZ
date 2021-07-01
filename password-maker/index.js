@@ -42,9 +42,9 @@ generateButton.addEventListener("click", generatePassword);
 
 let date = new Date();
 
-console.log(date);
+//console.log(date);
 
-console.log(date.toISOString());
+//console.log(date.toISOString());
 
 function dateParser(chaine)  {
    let newDate = new Date(chaine).toLocaleDateString("fr-FR", {
@@ -57,5 +57,33 @@ function dateParser(chaine)  {
    return newDate;
 }
 
-console.log(dateParser(date));
+//console.log(dateParser(date));
 
+// Destrictiring
+
+
+
+const dateDestructuring = (chaine) => {
+  let newDate = chaine.split("T")[0];
+  console.log("ma date" + newDate)
+  let [y, m, d] = newDate.split("-");
+  return [d, m, y].join("/");
+};
+//console.log(dateDestructuring(date));
+
+let mail = "from_scratch33@gmail.com";
+
+//console.log(mail.replace(/from/, "de"));
+//console.log(mail.match(/Scratch/i));
+//console.log(mail.match(/[zug]/));
+
+// Tous les chiffres
+//console.log(mail.match(/\d/));
+
+// Matcher toutes les lettres
+// console.log(mail.match(/[a-z]/));
+ //console.log(mail.match(/^[\w_-]+@[\w-]+\.[a-z]{2 , 4}$/i));
+// console.log(mail.match("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"));
+
+let separator = 12356789
+console.log(separator.toString().replace(/\B(?=(\d{3})+(?!\(d))/g, " "));
